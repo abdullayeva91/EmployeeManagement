@@ -19,12 +19,12 @@ public class Contractor extends Employee implements IDisplayable{
     @Override
     public void printEmployeeInfo() {
         super.printEmployeeInfo();
-        System.out.println("Contract Duration"+contractDuration);
+        System.out.println("Contract Duration : "+contractDuration);
     }
 
     @Override
     public void displayInfo() {
-        super.displayInfo();
+       printEmployeeInfo();
     }
 }
 

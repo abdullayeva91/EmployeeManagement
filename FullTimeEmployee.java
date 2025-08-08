@@ -19,7 +19,7 @@ public class FullTimeEmployee extends Employee implements IDisplayable{
     @Override
     public void printEmployeeInfo() {
         super.printEmployeeInfo();
-        System.out.println("Bonus"+bonus);
+        System.out.println("Bonus : "+bonus);
     }
 
     @Override
