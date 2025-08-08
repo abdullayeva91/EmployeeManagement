@@ -7,15 +7,19 @@ public class EmployeeManagement {
         Scanner inputReader = new Scanner(System.in);
         String systemPassword= "1234";
         String enterPassword;
-        System.out.println("________ Welcome to the Employee Information System________");
+        System.out.println(" ============================================================");
+        System.out.println("||_______ Welcome to the Employee Information System________||");
+        System.out.println("||                Manage Your Workface Like                 ||");
+        System.out.println("||                 a True Professional                      ||");
+        System.out.println(" ============================================================");
         do {
-            System.out.println("Enter system password: ");
+            System.out.println("<<<<<Enter your system password to proceed:>>>>> ");
             enterPassword=inputReader.nextLine();
             if (!enterPassword.equals(systemPassword)){
-                System.out.println("Wrong password! Try again");
+                System.out.println("<<< Wrong password! Please try once more: >>>");
             }
         }while (!enterPassword.equals(systemPassword));
-        System.out.println("Login successful!");
+        System.out.println("Welcome! Login successful. Ready to manage your team? ");
         Employee[] employees = new Employee[10];
         int currentEmployeeCount = 0;
 
@@ -40,7 +44,7 @@ public class EmployeeManagement {
 
         int menuChoice;
         do {
-            System.out.println("______Main Menu______");
+            System.out.println("______Employee Operations______");
             System.out.println("1. Add New Employee");
             System.out.println("2. Show All Employees");
             System.out.println("3. Delete Employee");
@@ -51,20 +55,20 @@ public class EmployeeManagement {
             switch (menuChoice){
                 case 1:
                     if (currentEmployeeCount<employees.length){
-                        System.out.println("____New Employees Information____");
+                        System.out.println("____Employee Entry Form____");
                         System.out.print("Enter name");
                         String name = inputReader.nextLine();
                         System.out.print("Enter surname");
                         String surname = inputReader.nextLine();
                         System.out.println("enter age");
                         int age = inputReader.nextInt();
+                        inputReader.nextLine();
                         if (age<18){
-                            System.out.println("Employee must be at least 18 years old. Cannot add to System");
+                            System.out.println("Access Denied - Come Back Stronger at 18: ");
                             break;
                         }
                         System.out.println("Enter Position");
                         String position = inputReader.nextLine();
-                        inputReader.nextLine();
                         System.out.println("enter salary");
                         double salary = inputReader.nextDouble();
                         inputReader.nextLine();
@@ -80,9 +84,11 @@ public class EmployeeManagement {
                             newEmployee =new FullTimeEmployee(name, surname, age, position, salary, "Full-Time",bonus);
                             employees[currentEmployeeCount]=newEmployee;
                             currentEmployeeCount++;
+                            System.out.println("New Employee added successfully");
                         } else if (typeChoice==2) {
                             System.out.println("Contract term (month)");
                             int duration = inputReader.nextInt();
+                            inputReader.nextLine();
                             newEmployee = new Contractor(name, surname, age, position, salary,"Contractor",duration);
                             employees[currentEmployeeCount] = newEmployee;
                             currentEmployeeCount++;
@@ -142,7 +148,11 @@ public class EmployeeManagement {
                     break;
 
                 case 0:
-                    System.out.println("Exiting the employee information system.......... Good luck!");
+                    System.out.println(" -----------------------------------------");
+                    System.out.println("|   EXITING EMPLOYEE INFORMATION SYSTEM   |");
+                    System.out.println("|     THANK YOU FOR USING OUR SYSTEM      |");
+                    System.out.println("|             GOOD LUCK!                  |");
+                    System.out.println(" -----------------------------------------");
 
                     break;
                 default:
